@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import './App.css';
-import {getMovieList, searchMovie} from ".api"
+import {getMovieList, searchMovie} from "./api"
 
 const App = () => {
   useEffect(()=>{
