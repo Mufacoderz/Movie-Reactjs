@@ -12,6 +12,22 @@ const App = () => {
       setPopularMovies(result)
     })
   }, [])
+
+  const PopularMovieList = () => {
+    return popularMovies.map((movie, i) => {
+      return (
+      
+          <div className="Movie-wrapper" key={i}>
+            <div className="Movie-title">{movie.title}</div>
+            <img className="Movie-image" src={movie.poster_path}/>
+            <div className="Movie-date">{movie.release_date}</div>
+            <div className="Movie-rate">{movie.vote_average}</div>
+          </div>
+       
+      )
+    })
+  }
+
   const search = (q) => {
     console.log({q})
   }
@@ -24,12 +40,7 @@ const App = () => {
         <h1>UCUP MOVIE MANIA</h1>
           <input type="text" placeholder='Cari film kesayangan...' className='Movie-search' onChange={({target})=> search(target.value)}/>
         <div className="Movie-container">
-          <div className="Movie-wrapper">
-            <div className="Movie-title">Contoh Pertama</div>
-            <img className="Movie-image" src=''></img>
-            <div className="Movie-date">11-12-2022</div>
-            <div className="Movie-rate">9,9</div>
-          </div>
+          <PopularMovieList/>
         </div>
       
       </header>
