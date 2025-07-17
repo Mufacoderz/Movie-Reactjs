@@ -28,8 +28,13 @@ const App = () => {
     })
   }
 
-  const search = (q) => {
-    console.log({q})
+  const search = async(q) => {
+
+    if(q.length > 3){
+    const query = await searchMovie(q)
+    setPopularMovies(query.results)
+    console.log({query: query})
+    }
   }
 
   console.log({popularMovies: popularMovies})
@@ -37,7 +42,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>UCUP MOVIE MANIA</h1>
+        <h1>MUFAMOVIE</h1>
           <input type="text" placeholder='Cari film kesayangan...' className='Movie-search' onChange={({target})=> search(target.value)}/>
         <div className="Movie-container">
           <PopularMovieList/>
